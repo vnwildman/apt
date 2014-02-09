@@ -9,7 +9,7 @@ msgstr ""
 "Project-Id-Version: apt 0.9.14.2\n"
 "Report-Msgid-Bugs-To: APT Development Team <deity@lists.debian.org>\n"
 "POT-Creation-Date: 2014-01-25 22:21+0100\n"
-"PO-Revision-Date: 2014-01-01 13:45+0700\n"
+"PO-Revision-Date: 2014-01-28 08:43+0700\n"
 "Last-Translator: Trần Ngọc Quân <vnwildman@gmail.com>\n"
 "Language-Team: Vietnamese <translation-team-vi@lists.sourceforge.net>\n"
 "Language: vi\n"
@@ -233,14 +233,14 @@ msgstr ""
 "   policy - Hiển thị các cài đặt chính sách\n"
 "\n"
 "Tùy chọn:\n"
-"  -h   Trợ giúp này.\n"
+"  -h   Hiển thị trợ giúp này.\n"
 "  -p=? Bộ nhớ tạm gói.\n"
 "  -s=? Bộ nhớ tạm nguồn.\n"
-"  -q   Không hiển thị diễn tiến.\n"
+"  -q   Không hiển thị diễn tiến công việc.\n"
 "  -i   Chỉ hiển thị những phụ thuộc quan trọng cho lệnh unmet.\n"
 "  -c=? Đọc tập tin cấu hình này\n"
 "  -o=? Đặt một tùy chọn cấu hình tùy ý, v.d. -o dir::cache=/tmp\n"
-"Để tìm thông tin thêm, xem hai trang man (hướng dẫn)\n"
+"Để tìm thông tin thêm, xem hai trang hướng dẫn\n"
 "                 apt-cache(8) và apt.conf(5).\n"
 
 #. }}}
@@ -691,7 +691,6 @@ msgstr ""
 "việc này"
 
 #: cmdline/apt-mark.cc:381
-#, fuzzy
 msgid ""
 "Usage: apt-mark [options] {auto|manual} pkg1 [pkg2 ...]\n"
 "\n"
@@ -726,6 +725,11 @@ msgstr ""
 "Lệnh:\n"
 "   auto - Đánh dấu các gói đưa ra là được cài đặt tự động\n"
 "   manual - Đánh dấu các gói đưa ra là được cài đặt bằng tay\n"
+"   hold - Đánh dấu một gói là giữ lại\n"
+"   unhold - Bỏ đánh dấu một gói là giữ lại\n"
+"   showauto - In ra danh sách các gói được tự động cài đặt\n"
+"   showmanual - In ra danh sách các gói được cài đặt bằng tay\n"
+"   showhold - In ra danh sách các gói được giữ lại\n"
 "\n"
 "Tùy chọn:\n"
 "  -h   Trợ giúp này.\n"
@@ -739,7 +743,6 @@ msgstr ""
 "                          apt-mark(8) và apt.conf(5)"
 
 #: cmdline/apt.cc:71
-#, fuzzy
 msgid ""
 "Usage: apt [options] command\n"
 "\n"
@@ -768,8 +771,13 @@ msgstr ""
 " show - hiển thị thông tin chi tiết về gói\n"
 "\n"
 " update - cập nhật danh sánh các gói sẵn có\n"
+"\n"
 " install - cài đặt các gói\n"
+" remove - gỡ bỏ các gói\n"
+"\n"
 " upgrade - nâng cấp các gói trong hệ thống\n"
+" full-upgrade - nâng cấp hệ thống bằng cách gỡ bỏ, cài đặt, nâng cấp các "
+"gói\n"
 "\n"
 " edit-sources - sửa tập tin thông tin gói nguồn\n"
 
@@ -1598,14 +1606,14 @@ msgstr "Tìm kiếm toàn văn"
 
 #: apt-private/private-show.cc:81 apt-private/private-show.cc:86
 msgid "unknown"
-msgstr ""
+msgstr "không hiểu"
 
 #: apt-private/private-show.cc:152
 #, c-format
 msgid "There is %lu additional record. Please use the '-a' switch to see it"
 msgid_plural ""
 "There are %lu additional records. Please use the '-a' switch to see them."
-msgstr[0] ""
+msgstr[0] "Ở đây có %lu bản ghi phụ thêm. Hãy dùng tùy chọn '-a' để xem"
 
 #: apt-private/private-show.cc:159
 msgid "not a real package (virtual)"
@@ -2790,9 +2798,9 @@ msgid "Unable to parse package file %s (2)"
 msgstr "Không thể phân tích tập tin gói %s (2)"
 
 #: apt-pkg/sourcelist.cc:118
-#, fuzzy, c-format
+#, c-format
 msgid "Malformed stanza %u in source list %s (URI parse)"
-msgstr "Gặp dòng sai dạng %lu trong danh sách nguồn %s (ngữ pháp URI)"
+msgstr "Gặp đoạn sai dạng %u trong danh sách nguồn %s (ngữ pháp URI)"
 
 #: apt-pkg/sourcelist.cc:161
 #, c-format
@@ -2874,9 +2882,9 @@ msgid "Type '%s' is not known on line %u in source list %s"
 msgstr "Không biết kiểu “%s” trên dòng %u trong danh sách nguồn %s."
 
 #: apt-pkg/sourcelist.cc:407
-#, fuzzy, c-format
+#, c-format
 msgid "Type '%s' is not known on stanza %u in source list %s"
-msgstr "Không biết kiểu “%s” trên dòng %u trong danh sách nguồn %s."
+msgstr "Không hiểu kiểu “%s” trên đoạn %u trong danh sách nguồn %s"
 
 #: apt-pkg/packagemanager.cc:296 apt-pkg/packagemanager.cc:922
 #, c-format
@@ -3496,7 +3504,7 @@ msgstr "Gỡ bỏ hoàn toàn %s"
 
 #: apt-pkg/deb/dpkgpm.cc:1047
 msgid "ioctl(TIOCGWINSZ) failed"
-msgstr ""
+msgstr "ioctl(TIOCGWINSZ) gặp lỗi"
 
 #: apt-pkg/deb/dpkgpm.cc:1050 apt-pkg/deb/dpkgpm.cc:1071
 #, c-format
